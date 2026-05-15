@@ -13,18 +13,71 @@
     </style>
 </head>
 <body>
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
     <div class="bg-black">
-        <h1 class="heading">DOM learing on chai aur code</h1> 
+        <h1 id="title" class="heading">DOM learing on chai aur code</h1> 
         <p>Lorem ipsum dolor sit amet.</p>
+        
     </div>
-    <!-- text content hidden by the css or some manupulation is can be shown by .textcontent  not by innerText  and innerHTML shows all the html written in it -->
-     <!-- There are many query we need not to know every thing -->
-      <!--  Important query selector -->
-        <!--  document.querySelector('pass tag') for selecting title use # inside the starting of the id name
-          also "." for classj
-        query selector give only one first list value
-        and query selector all gives node elements in which we uses the foreach l-->
-    
+    <script>
+        const title = document.getElementById("title")
+        title.style.background = "red"
+        title.style.padding= "15px"
+        title.style.color = "black"
+        title.style.alignContent = "centre"
+        const sec = document.querySelector("p")
+        sec.style.background = "white"
+        const div = document.createElement("div")
+        console.log(div);
+        div.className = "main"
+        div.id = Math.round(Math.random()*10 +1)
+        div.setAttribute("title" , "generated title")
+        // div.innerText = "Chai aur code" not optimized
+        // appending child is more optimized way is as follows
+        const addText = document.createTextNode("Chai aur code")
+        div.appendChild(addText)
+        
+
+        document.body.appendChild(div)
+        div.style.background("black")
+        // Add and edit the list item through the dom 
+        function addLanguage(langname){
+            const li = document.createElement("li");
+            li.innerHTML= `${langname}`
+           
+            document.querySelector(".language").appendChild(li)
+            
+
+            
+        }
+        addLanguage("python")
+        addLanguage("typescript")
+        // optimized way 
+        function addoptlang(langname){
+            const li = document.createElement("li")
+            li.appendChild(document.createTextNode(langname))
+            document.querySelector(".language").appendChild(li)
+
+        }
+        addoptlang("golang")
+        // Edit
+        const secondLang = document.querySelector("li:nth-child(2)")
+        const newli = document.createElement("li")
+        newli.textContent = "Mojo"
+        secondLang.replaceWith(newli)
+
+        
+        
+
+
+
+
+
+
+
+    </script>
     
 </body>
 </html>
