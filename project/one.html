@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Color Changer</title>
+
+    <style>
+        .button{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body id="main">
+
+   <div>
+    <h1>Project</h1>
+
+    <span class="button" id="white" style="background-color:white;"></span>
+
+    <span class="button" id="grey" style="background-color:gray;"></span>
+
+    <span class="button" id="blue" style="background-color:blue;"></span>
+
+    <span class="button" id="yellow" style="background-color:yellow;"></span>
+
+    <span class="button" id="red" style="background-color:red;"></span>
+    
+   </div>
+    
+    <script>
+        const buttons = document.querySelectorAll(".button");
+        const body = document.querySelector("body");
+
+        buttons.forEach(function(button){
+
+            button.addEventListener("click", function(e){
+
+                body.style.backgroundColor = e.target.id;
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>
