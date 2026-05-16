@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur javascript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const azfar = ()=>{
+        console.log("Azfar")
+    }
+    let intervalid
+    const myfunc =function(){
+        intervalid = setInterval(azfar,2000)
+    }
+    document.querySelector("#start").addEventListener("click" , myfunc)
+    document.querySelector("#stop").addEventListener("click" , ()=>{
+        clearInterval(intervalid)
+    })
+
+
+</script>
+    
+
+</html>
