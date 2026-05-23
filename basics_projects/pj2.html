@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple counter</title>
+</head>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color:#f2f2f2;
+    }
+    header {
+        background-color: white;
+        color:green;
+        text-align: center;
+        padding: 20px;
+        width: 100%;
+        box-shadow: 0px 4px 8px 0px
+            rgba(0 , 0 , 0 ,0.2);
+        
+        
+    }
+    .container{
+        text-align: center;
+        width:100%;
+        padding:20px;
+        box-shadow: 0px 4px 8px 0px
+            rgba(0 , 0 , 0 ,0.2);
+        border-radius: 10px;
+    }
+    .counter{
+        font-size:2em;
+        margin-bottom: 20px;
+    }
+    .clicks{
+        font-size:1.1em;
+        margin-top: 10px;
+    }
+    
+
+</style>
+<body>
+    <header>
+        <h1>Counter</h1>
+    </header>
+    <div class="container">
+        <div class="counter">
+            <p id="count">0</p>
+        </div>
+        <div class="nd">
+            
+            <button onclick="dec()">Decreament</button>
+            <button onclick="inc()">Increament</button>
+        </div>
+        <div class="clicks">
+            <p>Clicks on Increment: <span id="incount">0</span></p>
+            <p>Clicks on Decrement: <span id="decount">0</span></p>
+        </div>
+
+    </div>
+    
+</body>
+<script>
+    let c = 0 , ci = 0 , cd= 0
+    const count = document.getElementById("count");
+    const incocount = document.getElementById("incount")
+    const deccount = document.getElementById("decount")
+    function inc(){
+        c++;
+        
+        ci = (ci>10)? 0 : ci+1;
+        update()
+    }
+    function dec(){
+       
+        c = (c>0) ? c-1 :0;
+       
+        cd = (cd>=10) ? 0 :cd+1;
+        update();
+
+    }
+    function update(){
+        count.textContent = c;
+        incocount.textContent = ci;
+        deccount.textContent = cd;
+    }
+</script>
+</html>
