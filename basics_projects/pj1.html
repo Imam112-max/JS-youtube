@@ -3,9 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lorem Ipsum Generator</title>
-</head>
-<body>
+    <title>Document</title>
     
+</head>
+<style>
+    body{
+        font-family:Arial  sans-serif;
+        background-color: #f2f2f2;
+    }
+    header{
+        background-color: white;
+        color:green;
+        text-align:center;
+        padding:20px;
+        box-shadow: 0px 4px 8px 0px
+        rgba(0, 0, 0, 0.2);
+    }
+    h1{
+        font-size:28px
+    }
+    main{
+        max-width:800px;
+        margin:20px auto;
+        padding:20px;
+        background-color: #fff;
+        box-shadow: 0px 4px 8px
+        rgba(0 , 0 , 0 , 0.2);
+        border-radius: 10px;
+
+    }
+    .options{
+        margin-bottom:20px;
+    }
+    .options label{
+        display:block;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color:#333;
+    }
+    .options input[type='range'],
+    .options select,
+    .options input[type="number"]{
+        width:100%;
+        padding:17px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 13px;
+        background-color: #f9f9f9;
+        box-shadow:0px 2px 4px 
+            rgba(0 , 0 , 0 , 0.1);
+        color:#000;
+        
+
+    }
+    .options select{
+        appearance: block;
+    }
+    .options button {
+        display:block;
+        width:100%;
+        padding:15px;
+        background-color: green;
+        color:#fff;
+        font-size:20px;
+        font-weight:bold;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+        transition:background-color 0.3s
+            ease;
+        
+        
+    }
+    .options button:hover{
+        background-color: rgb(20,107,20);
+    }
+    .output{
+        background-color: #ffffff;
+        padding:30px;
+        border-radius: 10px;
+        border:2px solid crimson;
+        min-height:200px;
+        box-shadow: 5px 5px 15px 5px
+            rgba(0 , 0 , 0 , 0.2);
+        color:#333;
+
+    }
+
+</style>
+<body>
+    <header>
+        <h1>Lorem Ipsum Generator</h1>
+    </header>
+    <main>
+        <div class="options">
+            <div class="paragraphs">
+                <label for="paragraphs" >Paragraphs</label><br>
+                <input type="range"
+                id="paragraphs"
+                min="1" max="50"
+                value="1">
+                <span id="paragraphvalue">1</span>
+            </div>
+            <div class="words">
+                <label for="words">
+                    Words per paragraph:
+                </label>
+                <input type="range"
+                id="words" min="1" max="100" value="10">
+                <span id="wordsvalue">10</span>
+            </div>
+            <div class="tags">
+                <label for="tags">Tag:</label>
+                <select id="tags"><option value="">yes</option>
+                <option value="">No</option></select>
+            </div>
+            <div class="include">
+                <label for="include">
+                    Include HTML
+                </label>
+                <select name="" id="include" ><option value="Yes">Yes</option>
+                <option value="No">No</option></select>
+            </div>
+            <button id="generate">
+                Generate Lorem Ipsum
+
+            </button>
+        </div>
+        <div class="Output">
+
+        </div>
+    </main>
 </body>
+<script>
+    const tagOptions = [
+        "p" , "h1" , "h2" , "h3" , "h4" , "h5" , "h6" ,"span"
+    ];
+    const optionscontainer = document.querySelector(".options");
+    const outputcontainer = document.querySelector(".output")
+    const tagsselect = document.getElementById("tags")
+    const paragraphslider = document.getElementById("paragraphs");
+    const wordsslider = document.getElementById("words")
+    const wordsvalue = document.getElementById("wordsvalue");
+    const paragraphvalue = document.getElementById("paragraphvalue")
+    //Create options UI
+    function creeaeOptionsUI(){
+        tagOptions.forEach((tag)=>{
+            const option = document.createElement("option");
+            option.value = tag;
+            option.textContent = `${tag}`;
+            tagsselect.appendChild(option);
+        });
+        paragraphslider.addEventListener("input" , updateparagraphvalues);
+        wordsslider.addEventListener("input" , updatewordsvalue);
+        const generateButton = document.getElementById("generate");
+        generateButton.addEventListener("click" , generateLoremIpsum);
+
+    
+    }
+    function updateparagraphvalues(){
+        paragraphvalue.textContent = paragraphslider.value;
+    }
+    function updatewordsvalue(){
+        wordsvalue.textContent = wordsslider.value;
+    }
+    function generateLoremIpsum(){
+        const paragraph = parseInt(
+            paragraphslider.value
+        );
+        const tag = document.getElementById("tags").value;
+        const wordsperparagraph = parseInt(wordsslider.value);
+        const loremipsumtext = generateLoremIpsum()
+    }
+
+
+</script>
 </html>
