@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+<style>
+    #mainbox{
+        text-align: center;
+        padding: 10px;
+        border: 5px black;
+        padding-bottom: 40px;
+       
+
+    }
+    .col{
+        padding: 10px;
+        flex-basis:32%;
+        text-align: center;
+    }
+    
+    #header{
+        background-color: whitesmoke;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(13, 205, 13);
+        box-shadow: 0px 4px 8px 0px
+            rgba(0 , 0 , 0 , 0.2);
+        padding:20px;
+    }
+    #tempbox{
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        justify-content: space-between;
+
+
+    }
+
+</style>
+<body>
+    <div id="mainbox">
+        <div id="header">
+            <h1>
+                GeeksforGeeks
+            </h1>
+            <h2>
+                Temperature Converter
+            </h2>
+        </div>
+        <div class="col" id="tempbox">
+            <div>
+                <label for="">Fahrenheit</label>
+                <input type="number" id="fahrenheit">
+            </div>
+            <div class="col">
+                <label for="">Celsius</label>
+                <input type="number" name="" id="celsius">
+            </div>
+            <div class="col">
+                <label for="">Kelvin</label>
+                <input type="number" id="kelvin">
+
+            </div>
+        </div>
+    </div>
+    
+    <p id="result"></p>
+        
+    
+    
+</body>
+<script>
+    let celcius = document.getElementById("celsius")
+    let kelvin = document.getElementById("kelvin")
+    let fahrenheit = document.getElementById("fahrenheit")
+    
+    celcius.oninput = function(){
+        let f = (parseFloat(celcius.value)*9)/5 +32;
+        fahrenheit.value = parseFloat(f.toFixed(2));
+        let k = (parseFloat(celcius.value)+273);
+        kelvin.value = k ;
+    }
+    kelvin.oninput = function(){
+        let c = kelvin.value - 273;
+        celcius.value = c;
+        let f =  (parseFloat(c)*9)/5 +32;
+        fahrenheit.value = parseFloat(f.toFixed(2));
+    }
+    fahrenheit.oninput = function(){
+        let c = (parseFloat(fahrenheit.value)-32)*5/9;
+        celcius.value = parseFloat(c.toFixed(2));
+        let k = (parseFloat(c)) +273;
+        kelvin.value = parseFloat(c);
+    }
+    
+
+</script>
+</html>
