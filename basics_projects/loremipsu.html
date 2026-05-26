@@ -62,14 +62,16 @@
     </Header>
     <div id="GLI">
         <div style="display: grid;" id="para" >
-            <label class="lb" for="">Paragraph</label>     
+            <label class="lb" for="">Paragraph</label>
+            <span id="sp1">0</span>     
 
-            <input type="range" name="" id="paratag" min="0" max="10">
+            <input type="range" name="" id="paratag" min="0" max="5">
             
         </div>
         <div id="wpp" style="display: grid;">
             <label for="wppt">Words Per Paragraph</label>
-            <input type="range" name="" id="wppt" min="0" , max="8">
+            <span id="sp2">0</span>
+            <input type="range" name="" id="wppt" min="0" , max="100">
 
         </div>
         <div id="tag">
@@ -106,11 +108,51 @@
     const ranp = document.querySelector("#paratag")
     const btn = document.getElementById("generate")
     const worpp = document.querySelector("#wppt")
+    const tag= document.querySelector("#tag1")
+    const sp1 = document.querySelector("#sp1")
+    const sp2 = document.querySelector("#sp2")
+    const are  = document.getElementById("area")
+    ranp.addEventListener("input" ,()=>{
+        
+        sp1.textContent = ranp.value;
+    })
+    worpp.addEventListener("input" ,()=>{
+        
+        sp2.textContent = worpp.value;
+    })
+    const dict = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam magna turpis, egestas quis quam sed, euismod ultrices elit. Donec vitae condimentum nulla. Praesent faucibus, diam et sodales condimentum, ante velit condimentum urna, ut ultricies mi nunc sit amet ante. Proin viverra vitae urna eget efficitur. Fusce imperdiet eget lectus nec dictum. Suspendisse eget fringilla mauris, ut semper ipsum. Maecenas commodo feugiat arcu, a sollicitudin diam hendrerit vel. Cras id dictum nisl, vel bibendum ex. Quisque sapien velit, consectetur id nisi et, rutrum semper leo. Aenean aliquam eu enim ac tincidunt. Fusce accumsan aliquam risus et semper.
+
+Vestibulum blandit accumsan massa, et iaculis nisi condimentum vel. Duis nec hendrerit turpis, non euismod dolor. Integer non ex id odio porttitor sagittis. Vivamus sit amet nisl pulvinar, imperdiet ipsum sed, ultrices metus. Pellentesque gravida erat in ipsum convallis, et scelerisque lectus ultrices. Mauris pharetra lorem id nibh semper fringilla. Nullam justo lacus, placerat pretium maximus venenatis, imperdiet et eros. Sed posuere commodo nunc, eu egestas est bibendum et. Sed faucibus odio id urna molestie interdum. Aenean quis mattis nibh. Vestibulum vehicula fermentum volutpat. In eleifend fringilla ligula eu laoreet. Suspendisse quis nibh scelerisque, malesuada est blandit, ornare orci. In commodo, tellus nec malesuada suscipit, lectus ligula scelerisque felis, nec vehicula lacus quam sodales nunc. Mauris sit amet tempor ante. Praesent eros libero, luctus ac viverra sed, molestie at ex.
+
+Mauris in mi vel sem venenatis rhoncus vitae quis tellus. Nulla quis tortor sed magna luctus scelerisque. Quisque gravida pharetra sapien. Morbi feugiat nec nisi in sollicitudin. Duis dignissim arcu non molestie luctus. Sed pretium purus sem, eu faucibus orci laoreet imperdiet. Integer tempus tincidunt venenatis. Vestibulum fringilla rhoncus ornare. Nullam a consequat turpis. Quisque dictum ultricies velit eget auctor. Aenean malesuada risus sit amet fringilla lacinia. Donec at nulla gravida, molestie nisi a, vehicula purus. Donec congue mattis orci in posuere. In aliquam tristique turpis non iaculis. Donec eu laoreet ipsum, vitae bibendum tortor.
+
+Aliquam in leo vel augue sagittis posuere. In mattis diam in urna feugiat iaculis. Praesent varius lacus id pretium rutrum. Maecenas dapibus, mi eget egestas facilisis, dui mi aliquam ex, eget vestibulum ante felis at ex. Cras sit amet ligula sit amet purus pellentesque pretium. Quisque ipsum eros, convallis a ultricies nec, hendrerit malesuada quam. Sed consequat, libero nec facilisis sollicitudin, magna quam venenatis erat, quis aliquet turpis elit euismod massa. Phasellus sed leo ut augue fringilla maximus nec ut purus. Nulla et risus molestie sapien laoreet imperdiet vel nec lectus. Fusce sed sodales velit.
+
+Duis id ex eu ex iaculis egestas vel vitae justo. Suspendisse luctus augue diam. Aenean posuere lectus feugiat, interdum justo eget, volutpat nunc. Integer velit ligula, gravida ut eros id, interdum interdum orci. Duis venenatis mauris eget dui suscipit, eu tristique metus fringilla. Aenean pellentesque ut lorem nec euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas placerat eu nulla vitae aliquet. Nam nec sapien sit amet velit pulvinar porttitor. Nulla quis efficitur mi, fringilla cursus augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas vel tempor magna, eget molestie ex. Proin non turpis eleifend, aliquam metus quis, sollicitudin enim. Nulla facilisi. Etiam non tellus vitae ligula vehicula ornare eget at odio. Sed justo dui, mollis ut neque eu, pulvinar ultrices odio.`
+    let content = dict.trim();
+    let wordlist = content.split(/\s+/);
+    let word = wordlist.filter(function(el){
+        return el!="";
+    })
+    const len2 = word.length;
     btn.addEventListener("click", ()=>{
         const words = ranp.value
-        console.log(words);
-        const wpp = worpp;
-        console.log(wpp)
+        const wpp = worpp.value;
+        const len = dict.length ;
+        let para = "";
+        if(words!=0){
+            for(let i = 0 ; i<word.length;i++){
+                para+= word[i] + " ";
+
+            }
+            are.value = para;
+        }
+        
+    
+
+
+                
+
         
     })
 </script>
