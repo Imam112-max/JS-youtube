@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<style>
+    header{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 2em;
+        padding: 20px;
+        margin:10px;
+        color: rgb(40, 231, 40);
+        text-shadow: 2px 2px 4px #1e151588;
+            
+        box-shadow: 0px 4px 8px 0px
+            rgba(0, 0 , 0 , 1);
+    }
+    #main{
+        padding: 10px;
+        margin-top: 5px;
+        display: grid;
+        justify-content: center;
+        box-shadow: 4px 4px 8px 4px
+            rgba(0, 0 , 0 , 1);
+        
+        
+    }
+</style>
+<body>
+    <header><div id="header">
+        <h1>Simple Calculator</h1>      
+    </div></header>
+    <div id="main">
+        <div>
+            <label for="">Input  number 1
+                <input type="number" id="inp1">
+            </label>
+            
+        </div>
+        <div style="padding-top: 10px;">
+            <label for="">Input  number 2
+                <input type="number" id="inp2">
+            </label>
+            
+        </div>
+         <div style="display: flex; padding: 10px;">
+            <label for="">Select an Option : <select name="" id="Calculation"><option value="Add">Addition</option>
+            <option value="mul">Multiplication</option>
+            <option value="sub">Subtraction</option>
+            <option value="div">Division</option></select></label>
+            
+                
+           
+        </div>
+        <div style="display: flex; padding: 10px; ">
+            <button >Generate</button>
+
+        </div>
+       
+        
+        
+        <div>
+            <p id="result"></p>
+        </div>
+        
+        
+    </div>
+    
+</body>
+
+    <script>
+    const A = document.getElementById("inp1");
+    const B = document.getElementById("inp2");
+
+    const result = document.getElementById("result");
+    const btn = document.querySelector("button");
+    const calcu = document.getElementById("Calculation");
+
+    btn.addEventListener("click", () => {
+        let num1 = Number(A.value);
+        let num2 = Number(B.value);
+
+        if (calcu.value === "Add") {
+            result.textContent = num1 + num2;
+        } 
+        else if (calcu.value === "mul") {
+            result.textContent = num1 * num2;
+        } 
+        else if (calcu.value === "div") {
+            if(num2 === 0){
+                result.textContent = "Cannot divide by zero";
+            } else {
+                result.textContent = num1 / num2;
+            }
+        } 
+        else {
+            result.textContent = num1 - num2;
+        }
+    });
+</script>
+
+</html>
