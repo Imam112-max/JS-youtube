@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple counter design</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        height:100vh;
+        
+       
+        align-items: center;
+        
+    }
+    #body{
+        display:flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.9rem;
+        padding: 10px;
+    }
+    #btn1{
+        padding-right: 10px;
+        
+    }
+    #btn11{
+        font-size: 20px;
+        margin: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    #btn2{
+        padding-right: 0px;
+        
+    }
+    #btn22{
+        font-size: 20px;
+        margin: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    #textarea{
+        padding:10px;
+        width: 100px;
+        padding:20px;
+        height: 20px;
+        
+    }
+</style>
+
+<body>
+    <div id=""><div id="body" >
+        <button id="btn11">+</button> <input type="number" name="" id="textarea" value="0"><button id="btn22">-</button>
+        
+    </div>
+<div style="text-align: center;">
+    <button id="reset">reset</button>
+</div></div>
+    
+</body>
+<script>
+    const btn1= document.getElementById("btn11")
+    const btn2 = document.getElementById("btn22")
+    const textarea= document.getElementById("textarea")
+    const rest = document.getElementById("reset")
+    
+    rest.addEventListener("click",()=>{
+        textarea.value = 0;
+    })
+
+    btn1.addEventListener("click" ,()=>{
+        let c= parseFloat(textarea.value);
+       
+        textarea.value = c+1;
+
+        
+    })
+    btn2.addEventListener("click" ,()=>{
+        let c= parseFloat(textarea.value);
+        
+        textarea.value = c-1;
+
+        
+    })
+</script>
+</html>
