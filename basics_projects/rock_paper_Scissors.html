@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper scissor</title>
+</head>
+<style>
+    body{
+        margin:0;
+        height:100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #container{
+       width: 500px;
+       min-height: 400px;
+       background-color: aquamarine;
+       padding: 20px;
+       border-radius: 10px;
+       text-align: center ;
+       font-family: Arial, Helvetica, sans-serif;
+
+
+    }
+    #pvc , #pvc2 , #btns{
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+
+    }
+    #btns{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 40px;
+        margin-bottom: 30px;
+
+    }
+    button{
+        background-color: rgb(230, 195, 20);
+    }
+
+
+
+
+
+
+
+</style>
+<body>
+    <div id="container">
+        <h1>Rock Paper scissor</h1>
+        <div id="pvc">
+            <span >Person</span>  <span>Computer</span>
+        </div>
+        <div id="pvc2">
+            <span id="person">0</span>  <span id="computer">1</span>
+        </div>
+
+        <div id="container2">
+
+        </div>
+        <div id="cym">
+            <h2>Choose your move</h2>
+              <h3>
+                Moves Left: <span id="move_count">9</span>
+            </h3>
+
+        </div>
+        <div id="btns">
+            <button>Rock</button><button>Paper</button><button>Scissors</button>
+
+        </div>
+        <div id="last">
+            <span>Player Won</span>
+        </div>
+
+
+
+    </div>
+
+
+
+</body>
+</html>
