@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper scissor</title>
+</head>
+<style>
+    body{
+        margin:0;
+        height:100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #container{
+       width: 500px;
+       min-height: 400px;
+       background-color: aquamarine;
+       padding: 20px;
+       border-radius: 10px;
+       text-align: center ;
+       font-family: Arial, Helvetica, sans-serif;
+
+
+    }
+    #pvc , #pvc2 , #btns{
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+
+    }
+    #btns{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 40px;
+        margin-bottom: 30px;
+
+    }
+    button{
+        background-color: rgb(230, 195, 20);
+    }
+
+
+
+
+
+
+
+</style>
+<body>
+    <div id="container">
+        <h1>Rock Paper scissor</h1>
+        <div id="pvc">
+            <span >Person</span>  <span>Computer</span>
+        </div>
+        <div id="pvc2">
+            <span id="person">0</span>  <span id="computer">0</span>
+        </div>
+
+        <div id="container2">
+            <label for="" id="announce"></label>
+
+        </div>
+        <div id="cym">
+            <h2>Choose your move</h2>
+              <h3>
+                Moves Left: <span id="move_count">10</span>
+            </h3>
+
+        </div>
+        <div id="btns">
+            <button id="btn1">Rock</button><button id="btn2">Paper</button><button id="btn3">Scissors</button>
+
+        </div>
+        <div id="last">
+            <span id="show">Final decison</span>
+        </div>
+
+
+
+    </div>
+
+
+
+</body>
+<script>
+    const P_score = document.getElementById("person")
+    const C_scroe = document.getElementById("computer")
+    const tell = document.getElementById("announce")
+    const mc = document.getElementById("move_count")
+    const btn1 = document.getElementById("btn1")
+    const btn2 = document.getElementById("btn2")
+    const btn3 = document.getElementById("btn3")
+    const show = document.getElementById("show")
+    const lst = ["Rock" , "Paper" , "Scissors"]
+    let moves = 10
+    let person=0
+    let computer = 0
+    let a = 0
+    let b = 0
+    let c = 0
+    btn1.addEventListener("click" , ()=>{
+        moves--;
+        a++;
+
+        let num = Math.floor(Math.random()*3)
+
+
+
+        mc.innerText = moves;
+        if(moves>0 &&  a>0){
+            tell.innerText= `Computer:${lst[num]}`
+            if(lst[num]==="Paper"){
+
+                computer ++;
+                C_scroe.innerText = computer;
+                a = 0 ;
+
+            }else if(lst[num]==="Scissors"){
+                person++;
+                P_score.innerText = person;
+                a = 0 ;
+            }
+
+
+        }else if(moves<0){
+            mc.innerText = "No moves left please refresh the page"
+            if(computer>person){
+                show.innerText = "Computer won"
+            }else if(computer === person){
+                show.innerText = "Draw"
+            }else{
+                show.innerText = "Player won"
+            }
+        }
+
+    })
+    btn2.addEventListener("click" , ()=>{
+        moves--;
+        b++;
+
+        let num = Math.floor(Math.random()*3)
+
+
+
+        mc.innerText = moves;
+        if(moves>0 &&  b>0){
+            tell.innerText= `Computer:${lst[num]}`
+            if(lst[num]==="Scissors"){
+
+                computer ++;
+                C_scroe.innerText = computer;
+                b = 0 ;
+
+            }else if(lst[num]==="Rock"){
+                person++;
+                P_score.innerText = person;
+                b = 0 ;
+            }
+
+
+        }else if(moves<0){
+            mc.innerText = "No moves left please refresh the page"
+            if(computer>person){
+                show.innerText = "Computer won"
+            }else if(computer === person){
+                show.innerText = "Draw"
+            }else{
+                show.innerText = "Player won"
+            }
+        }
+
+
+
+    })
+    btn3.addEventListener("click" , ()=>{
+        moves--;
+        c++;
+
+        let num = Math.floor(Math.random()*3)
+
+
+
+        mc.innerText = moves;
+        if(moves>0 &&  c>0){
+            tell.innerText= `Computer:${lst[num]}`
+            if(lst[num]==="Rock"){
+
+                computer ++;
+                C_scroe.innerText = computer;
+                c= 0 ;
+
+            }else if(lst[num]==="Paper"){
+                person++;
+                P_score.innerText = person;
+                c = 0 ;
+            }
+
+
+        }else if(moves<0){
+            mc.innerText = "No moves left please refresh the page"
+            if(computer>person){
+                show.innerText = "Computer won"
+            }else if(computer === person){
+                show.innerText = "Draw"
+            }else{
+                show.innerText = "Player won"
+            }
+        }
+
+
+
+
+
+    })
+
+
+
+
+</script>
+</html>
